@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - Ecopuls</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-[#FCFCF5] font-sans">
+  <div class="flex items-center justify-center min-h-screen px-4">
+    <div class="w-full max-w-md bg-white p-8 rounded-xl shadow-md">
+      <h2 class="text-2xl font-bold mb-6 text-center text-[#000]">Create Account</h2>
+
+      <form id="signupForm" class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium mb-1">Name</label>
+          <input type="text" name="username" required placeholder="Your Name"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input type="email" name="email" required placeholder="you@example.com"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Password</label>
+          <input type="password" name="password" required placeholder="Create a password"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+        </div>
+
+        <button type="submit" class="w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700">
+          Sign Up
+        </button>
+      </form>
+
+      <p class="text-sm text-center mt-6 text-gray-700">
+        Already have an account?
+        <a href="login.html" class="text-green-700 font-semibold">Log In</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('signupForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const username = form.username.value;
+      const email = form.email.value;
+      const password = form.password.value;
+
+      try {
+        const res = await fetch('http://localhost:5000/api/auth/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, email, password })
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          alert('✅ Registration successful!');
+          window.location.href = 'login.html';
+        } else {
+          alert(data.message || '❌ Registration failed');
+        }
+      } catch (err) {
+        console.error(err);
+        alert('⚠️ Error connecting to server');
+      }
+    });
+  </script>
+</body>
+
+</html>

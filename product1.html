@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EcoPuls Product</title>
+  <link href="https://fonts.googleapis.com/css2?family=Signika&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <a href="index.html#productSection" class="back-arrow">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_49_44)">
+        <g filter="url(#filter0_d_49_44)">
+          <path
+            d="M13.0415 21.6666L22.3748 31L19.9998 33.3333L6.6665 20L19.9998 6.66663L22.3748 8.99996L13.0415 18.3333H33.3332V21.6666H13.0415Z"
+            fill="#666666" />
+        </g>
+      </g>
+      <defs>
+        <filter id="filter0_d_49_44" x="1.6665" y="3.66663" width="36.6665" height="36.6666"
+          filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+            result="hardAlpha" />
+          <feOffset dy="2" />
+          <feGaussianBlur stdDeviation="2.5" />
+          <feComposite in2="hardAlpha" operator="out" />
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_49_44" />
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_49_44" result="shape" />
+        </filter>
+        <clipPath id="clip0_49_44">
+          <rect width="40" height="40" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  </a>
+
+  <!-- Product Section -->
+  <section id="productSection" class="product-section">
+    <div class="product-image">
+      <img src="Assets/product_section_coir_pot_image_1.png" alt="EcoPuls Coir Pot">
+    </div>
+
+    <div class="product-info">
+      <h1>EcoPuls Coir Pot – 100% Natural & Biodegradable</h1>
+      <h3>"Grow green, the eco-friendly way." <span>Sustainable. Stylish. Soil-Loving.</span></h3>
+      <p>
+        EcoPuls Coir Pots are crafted from natural coconut coir fibers, offering an eco-friendly alternative to plastic
+        planters.
+        Lightweight, breathable, and biodegradable — these pots are ideal for starting seeds, growing herbs, or
+        nurturing indoor plants.
+        Designed to decompose in soil, they enrich the earth as they break down, making them perfect for a zero-waste
+        gardening lifestyle.
+      </p>
+
+      <h2>₹40 <span>/pot</span></h2>
+      <p class="combo">Minimum order: (<span class="save">100 Pots</span>)</p>
+
+      <ul class="features">
+        <li>♻️ 100% Biodegradable</li>
+        <li>🌱 Made from Coconut Coir</li>
+        <li>🪴 Promotes Root Ventilation</li>
+        <li>💧 Retains Moisture Naturally</li>
+        <li>🌿 Perfect for Seedlings & Gardening</li>
+      </ul>
+
+      <div class="buttons">
+        <button class="buy">Buy Now</button>
+        <!-- <button class="details">See details</button> -->
+        <div class="quantity">
+          <button onclick="adjustQty(-1)">−</button>
+          <input type="text" value="1" id="qty" readonly>
+          <button onclick="adjustQty(1)">+</button>
+        </div>
+      </div>
+
+      <div class="sizes">
+        <p>Size</p>
+        <button>₹40 <br> 4 inch<br>8*11.5 cm</button>
+        <button>₹60 <br> 6 inch<br>18*16.5 cm</button>
+        <button>₹80 <br> 12 inch<br>26*30.5 cm</button>
+      </div>
+
+      <div class="about">
+        <h4>About this item</h4>
+        <ul>
+          <li>Encourages strong root development through excellent aeration.</li>
+          <li>Naturally retains moisture, reducing the need for frequent watering.</li>
+          <li>Fully biodegradable — breaks down in soil within weeks after use.</li>
+          <li>Ideal for starting seeds, growing herbs, flowers, and nursery saplings</li>
+          <li>Lightweight, breathable, and suitable for both indoor & outdoor gardening.</li>
+          <li>Eco-safe alternative to plastic and terracotta pots.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    function scrollToProduct() {
+      document.getElementById("productSection").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function adjustQty(amount) {
+      const qtyInput = document.getElementById("qty");
+      let current = parseInt(qtyInput.value);
+      current = isNaN(current) ? 1 : current + amount;
+      if (current < 1) current = 1;
+      qtyInput.value = current;
+    }
+
+  </script>
+
+</body>
+
+</html>

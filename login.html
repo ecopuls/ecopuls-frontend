@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - Ecopuls</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-[#FCFCF5] font-sans">
+    <div class="flex flex-col lg:flex-row min-h-screen">
+
+        <!-- Left Side (Image) -->
+        <div class="hidden lg:flex w-1/2 bg-cover bg-center rounded-r-3xl"
+            style="background-image: url('Assets/lg_screen_login_image.png');">
+            <div class="p-12 text-white max-w-md m-auto">
+                <h1 class="text-4xl font-bold leading-tight">Sourced from Nature, Crafted with Care</h1>
+                <p class="mt-4">Our coir pots are born here, from real farms, made for real change.</p>
+            </div>
+        </div>
+
+        <!-- Right Side (Form) -->
+        <div class="w-full lg:w-1/2 flex items-center justify-center py-10 px-4">
+            <div class="w-full max-w-md">
+                <a href="index.html">
+                    <button class="mb-6 flex items-center text-[#000] font-semibold">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
+                        </svg>
+                        Back
+                    </button>
+                </a>
+
+                <h2 class="text-2xl font-bold mb-1 text-[#000]">Log In</h2>
+                <p class="text-sm text-gray-600 mb-6">Welcome Back to Ecopuls</p>
+
+                <!--  Form Starts -->
+                <form id="loginForm" class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email or Phone Number</label>
+                        <input type="text" name="email" required placeholder="you@example.com / 9876543210"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Password</label>
+                        <input type="password" name="password" required placeholder="Enter your password"
+                            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-400" />
+                    </div>
+
+                    <div class="text-right text-sm text-green-600 font-semibold">
+                        <a href="#">Forget Password?</a>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-green-600 text-white font-semibold py-2 rounded-md hover:bg-green-700">
+                        Log In
+                    </button>
+                </form>
+
+                <div class="flex items-center my-6">
+                    <div class="flex-grow h-px bg-gray-300"></div>
+                    <span class="mx-2 text-gray-400">Or</span>
+                    <div class="flex-grow h-px bg-gray-300"></div>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 text-sm text-gray-600 cursor-pointer">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="w-5 h-5" alt="google" />
+                    Sign In with Google
+                </div>
+
+                <p class="text-sm text-center mt-6 text-gray-700">
+                    Create a New Account?
+                    <a href="register.html" class="text-green-700 font-semibold">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--  JavaScript -->
+    <script>
+        const form = document.getElementById('loginForm');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const email = form.email.value;
+            const password = form.password.value;
+
+            try {
+                const response = await fetch('http://localhost:5000/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    localStorage.setItem("user", JSON.stringify(data.user));
+                    alert('Login successful!');
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message || '❌ Login failed');
+                }
+            } catch (err) {
+                console.error(err);
+                alert('⚠️ Error connecting to server');
+            }
+        });
+
+
+
+
+        const user = localStorage.getItem("user");
+        if (!user) {
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+
+</html>
