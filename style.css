@@ -642,6 +642,12 @@ body {
     margin-bottom: 20px;
 }
 
+.gunny_bag{
+    width: 100px;
+    height: 160px;
+    object-fit: cover;
+}
+
 .product-card {
     padding: 10px;
     background-color: #F8F7F0;
