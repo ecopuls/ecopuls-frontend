@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (logoutBtn) logoutBtn.style.display = "block";
   } else {
     if (loginBtn) loginBtn.style.display = "block";
-    if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
+    if (mobileLoginBtn) mobileLoginBtn.style.display = "block";
     if (logoutBtn) logoutBtn.style.display = "none";
   }
 });
