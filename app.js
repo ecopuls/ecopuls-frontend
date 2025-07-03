@@ -12,17 +12,21 @@ function toggleMenu() {
 // ====== Login/Logout Display ======
 document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("loginBtn");
+  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
   const user = localStorage.getItem("user");
 
   if (user) {
-    loginBtn.style.display = "none";
-    logoutBtn.style.display = "block";
+    if (loginBtn) loginBtn.style.display = "none";
+    if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "block";
   } else {
-    loginBtn.style.display = "block";
-    logoutBtn.style.display = "none";
+    if (loginBtn) loginBtn.style.display = "block";
+    if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
+    if (logoutBtn) logoutBtn.style.display = "none";
   }
 });
+
 
 // ====== Logout ======
 function logout() {
