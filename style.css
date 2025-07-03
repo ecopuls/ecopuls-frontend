@@ -199,6 +199,22 @@ body {
     }
 }
 
+.mobile-login {
+    display: none;
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .mobile-login {
+        display: block;
+    }
+
+    #loginBtn {
+        display: none !important;
+    }
+}
+
+
 /* Hero content */
 .hero {
     display: flex;
