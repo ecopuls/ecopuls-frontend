@@ -50,7 +50,7 @@ document.getElementById("scrollTopBtn").addEventListener("click", function () {
 // ====== Typed Text ======
 document.addEventListener("DOMContentLoaded", function () {
   new Typed("#typed-text", {
-    strings: ["Direct to the Farm", "Eco-Friendly Products", "Sustainable Future"],
+    strings: ["Direct to the Farm", "Eco-Friendly coir Products", "Sustainable Future"],
     typeSpeed: 80,
     backSpeed: 40,
     backDelay: 1500,
