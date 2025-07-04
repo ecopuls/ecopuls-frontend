@@ -23,7 +23,7 @@ body {
     height: 100vh;
 }
 
-/* Base */
+/* navbar */
 .navbar {
     position: absolute;
     top: 0;
@@ -153,7 +153,6 @@ body {
 
 .mobile-only {
     display: none;
-    /* Hide mobile elements by default */
 }
 
 /* Mobile Styles */
