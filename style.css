@@ -23,7 +23,7 @@ body {
     height: 100vh;
 }
 
-/* Navbar */
+/* Base */
 .navbar {
     position: absolute;
     top: 0;
@@ -58,11 +58,10 @@ body {
 
 .logo-image {
     width: 50px;
-    height: 50pxw;
+    height: 50px;
     border-radius: 50%;
     margin-right: 10px;
     transition: transform 0.3s ease;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 .hamburger {
@@ -87,7 +86,6 @@ body {
     color: white;
     text-decoration: none;
     font-weight: 500;
-    transform: translateY(0);
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
@@ -149,6 +147,16 @@ body {
     box-shadow: 0 8px 20px rgba(247, 226, 107, 0.4);
 }
 
+#logoutBtn .login-btn {
+    margin-left: 10px;
+}
+
+.mobile-only {
+    display: none;
+    /* Hide mobile elements by default */
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
     .hamburger {
         display: block;
@@ -169,11 +177,9 @@ body {
     .nav-links a {
         margin: 10px 0;
         color: black;
-        transition: transform 0.3s ease, color 0.3s ease;
     }
 
     .nav-links a:hover {
-        transform: translateY(-4px);
         color: #000;
     }
 
@@ -184,6 +190,23 @@ body {
 
     .nav-right {
         display: none;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+
+    .mobile-login-logout {
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .mobile-login-logout .login-btn {
+        padding: 10px 22px;
+        font-size: 14px;
     }
 }
 
@@ -196,21 +219,6 @@ body {
     to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-.mobile-login {
-    display: none;
-    margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-    .mobile-login {
-        display: block;
-    }
-
-    #loginBtn {
-        display: none !important;
     }
 }
 
@@ -311,7 +319,6 @@ body {
     }
 }
 
-/* ✅ Responsive Fix */
 @media (max-width: 768px) {
     .hero {
         padding: 80px 30px;
@@ -658,7 +665,7 @@ body {
     margin-bottom: 20px;
 }
 
-.gunny_bag{
+.gunny_bag {
     width: 100px;
     height: 160px;
     object-fit: cover;

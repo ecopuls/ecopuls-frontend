@@ -45,25 +45,34 @@
                 <a href="#achievementSection">ACHIEVEMENTS</a>
                 <a href="#contactUsSection">CONTACT US</a>
 
-                <a href="login.html" id="mobileLoginBtn" class="mobile-login">
-                    <button class="login-btn">Login <i class="ri-arrow-right-up-line"></i></button>
-                </a>
-
-                <div id="logoutBtn" style="display: none;">
-                    <button onclick="logout()">Logout</button>
+                <!-- Mobile login/logout -->
+                <div class="mobile-login-logout mobile-only">
+                    <a href="login.html" id="loginBtnMobile">
+                        <button class="login-btn">Login <i class="ri-arrow-right-up-line"></i></button>
+                    </a>
+                    <div id="logoutBtnMobile" style="display: none;">
+                        <button class="login-btn" onclick="logout()">Logout</button>
+                    </div>
                 </div>
             </div>
 
+            <!-- Desktop login/logout -->
             <div class="nav-right" id="navRight">
                 <div class="call">
                     <p>Call us Now</p>
                     <span>+91 6301251669</span>
                 </div>
+
                 <a href="login.html" id="loginBtn">
                     <button class="login-btn">Login <i class="ri-arrow-right-up-line"></i></button>
                 </a>
+
+                <div id="logoutBtn" style="display: none;">
+                    <button class="login-btn" onclick="logout()">Logout</button>
+                </div>
             </div>
         </nav>
+
         <!-- Hero Section -->
         <section id="heroSection" class="hero">
             <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">

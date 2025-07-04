@@ -1,4 +1,4 @@
-// ====== Navbar Toggle ======
+// Toggle mobile menu
 function toggleMenu() {
   const links = document.getElementById("navLinks");
   const right = document.getElementById("navRight");
@@ -9,31 +9,36 @@ function toggleMenu() {
   hamburger.classList.toggle("active");
 }
 
-// ====== Login/Logout Display ======
+// Login/Logout UI display logic
 document.addEventListener("DOMContentLoaded", () => {
   const loginBtn = document.getElementById("loginBtn");
-  const mobileLoginBtn = document.getElementById("mobileLoginBtn");
   const logoutBtn = document.getElementById("logoutBtn");
+
+  const loginBtnMobile = document.getElementById("loginBtnMobile");
+  const logoutBtnMobile = document.getElementById("logoutBtnMobile");
+
   const user = localStorage.getItem("user");
 
   if (user) {
     if (loginBtn) loginBtn.style.display = "none";
-    if (mobileLoginBtn) mobileLoginBtn.style.display = "none";
     if (logoutBtn) logoutBtn.style.display = "block";
+    if (loginBtnMobile) loginBtnMobile.style.display = "none";
+    if (logoutBtnMobile) logoutBtnMobile.style.display = "block";
   } else {
     if (loginBtn) loginBtn.style.display = "block";
-    if (mobileLoginBtn) mobileLoginBtn.style.display = "block";
     if (logoutBtn) logoutBtn.style.display = "none";
+    if (loginBtnMobile) loginBtnMobile.style.display = "block";
+    if (logoutBtnMobile) logoutBtnMobile.style.display = "none";
   }
 });
 
-
-// ====== Logout ======
+// Logout function
 function logout() {
   localStorage.removeItem("user");
-  alert("Logged out successfully!");
-  window.location.href = "index.html";
+  window.location.reload();
 }
+
+
 
 // ====== Scroll To Top Button ======
 window.onscroll = function () {
